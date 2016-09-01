@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fuhope.ssm.mapper.ShopcarMapper">
+
+<!-- 添加购物车 -->
+	<insert id="insertShopcar" parameterType="com.fuhope.ssm.po.ShopcarCustom" >
+		insert into shopcar(account,number,count) value(#{account},#{number},#{count})
+	</insert>
+	
+<!-- 查询购物车 -->	
+	<select id="selectShopcarsByAccount" parameterType="String" resultType="com.fuhope.ssm.po.ShopcarCustom">
+		SELECT shopcar.* FROM shopcar where account=#{value}
+	</select>
+	
+<!-- 更新数据库 -->
+	<update id="updateShopcarByAccountAndNumber" parameterType="com.fuhope.ssm.po.ShopcarCustom" >
+		update shopcar set count=#{count} where account=#{account} and number=#{number}
+	</update>
+	
+<!-- 根据account和number查询数据库 -->
+	<select id="selectShopcarsByAccountAndNumber" parameterType="com.fuhope.ssm.po.ShopcarCustom" resultType="com.fuhope.ssm.po.ShopcarCustom">
+		SELECT shopcar.* FROM shopcar where account=#{account} and number=#{number}
+	</select>
+	
+<!-- 删除购物车 -->
+	<delete id="deleteShopcarByAccountAndNumber" parameterType="com.fuhope.ssm.po.ShopcarCustom">
+		delete from shopcar where account=#{account} and number=#{number}
+	</delete>
+
+</mapper>

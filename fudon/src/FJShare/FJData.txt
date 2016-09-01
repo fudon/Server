@@ -1,0 +1,15 @@
+
+本类的方法有
+
+1.根据两个地点的经纬度来计算两地间的距离，返回值的单位是千米,前两个参数是第一个地点的纬度和经度，后两个参数是第二个地点的纬度和经度
+	public static  double distanceByCoordinate(double lat1, double lng1, double lat2, double lng2);
+
+2.根据信用卡的利率和月份来计算分期的实际利率，yearRate是每月分期利率的12倍，month是分期月数，得到的结果是实际年利率
+	public static double countCreditTureRate(double yearRate,long month);
+
+3.根据指定位数生成随机数，建议用后面那个，因为前者是用截字符串的方法拼凑的，后者调用了系统的Math.random()方法
+	public static int randomNumberWithDigit(int digit)；
+	public static int randomNumberByDigit(int digit)；
+	
+4.
+	

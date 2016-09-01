@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- 配置别名 -->
+	<typeAliases>
+	<!-- 如果要扫描另一个包，就再加一条package标签  -->
+		<package name="com.fuhope.ssm.po"/>
+		<package name="com.fuhope.ssm.feedback"/>
+	</typeAliases>
+	
+	<!-- 配置mapper 
+		使用spring和mybatis的整合包进行mapper扫描，这里不需要配置了。必须谨记：mapper.xml和mapper.java文件同名且在一个目录
+	-->	
+</configuration>

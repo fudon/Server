@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fuhope.ssm.mapper.GoodsMapper">
+
+
+<!-- 根据home查找商品 -->
+	<select id="findGoodsByHome" parameterType="com.fuhope.ssm.po.GoodsCustom" resultType="com.fuhope.ssm.po.GoodsCustom">
+		SELECT goods.* FROM goods WHERE goods.home=#{goodsCustom.home}
+	</select>
+	
+<!-- 根据number查找商品 -->
+	<select id="findGoodsByNumber" parameterType="String" resultType="com.fuhope.ssm.po.GoodsCustom">
+		SELECT goods.* FROM goods WHERE number=#{value}
+	</select>
+
+<!-- 添加商品 -->
+	<insert id="insertGoods" parameterType="com.fuhope.ssm.po.GoodsCustom" >
+		insert into goods(number,home,name,detail,price,cent,rest) value(#{number},#{home},#{name},#{detail},
+		#{price},#{cent},#{rest})
+	</insert>
+	
+<!-- 更新商品 -->
+	<update id="updateGoodsByNumber" parameterType="com.fuhope.ssm.po.GoodsCustom">
+		update goods set home=#{home},name=#{name},detail=#{detail},price=#{price},
+		cent=#{cent},rest=#{rest} where number=#{number}
+	</update>
+	
+<!-- 获取数据库记录数 -->
+	<select id="knowTheGoodsCount" resultType="java.lang.Long">
+		select count(*) from goods;
+	</select>
+
+</mapper>

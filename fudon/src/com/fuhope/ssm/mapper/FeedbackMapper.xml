@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fuhope.ssm.mapper.FeedbackMapper">
+
+<!-- 添加反馈 -->
+	<insert id="insertFeedback" parameterType="com.fuhope.ssm.feedback.FBCustom" >
+		insert into feedback(content,account,userinfo,number,flag) value(#{content},#{account},#{userinfo},#{number},#{flag})
+	</insert>
+	
+<!-- 查询反馈数据 -->	
+	<select id="selectAllFBs" resultType="com.fuhope.ssm.feedback.FBCustom">
+		SELECT feedback.* FROM feedback
+	</select>
+	
+<!-- 查询反馈数据 -->	
+	<select id="selectFBsByFlag" parameterType="java.lang.String" resultType="com.fuhope.ssm.feedback.FBCustom">
+		SELECT feedback.* FROM feedback where flag=#{flag}
+	</select>
+	
+<!-- 删除记录 -->
+	<delete id="deleteFeedBackByNumber" parameterType="java.lang.String">
+		delete from feedback where number=#{value};
+	</delete>
+		
+<!-- 更新反馈数据状态 -->
+	<update id="updateFeedbackByNumber" parameterType="java.lang.String">
+		update feedback set flag=1 where number=#{value}
+	</update>
+
+<!-- 获取数据库记录数 -->
+	<select id="knowTheFBCount" resultType="java.lang.Long">
+		select count(*) from feedback;
+	</select>
+	
+</mapper>
